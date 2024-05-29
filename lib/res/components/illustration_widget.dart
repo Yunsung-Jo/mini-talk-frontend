@@ -21,9 +21,9 @@ class IllustrationWidget extends StatelessWidget {
       children: [
         SvgPicture.asset(assetName),
         const SizedBox(height: 50,),
-        Text(title, style: AppTextStyle.instance.titleBold_20),
+        Text(title, style: AppTextStyle.instance.notoSansBold20),
         const SizedBox(height: 10,),
-        Text(subtitle, style: AppTextStyle.instance.content_16),
+        Text(subtitle, style: AppTextStyle.instance.notoSans15),
       ],
     );
   }

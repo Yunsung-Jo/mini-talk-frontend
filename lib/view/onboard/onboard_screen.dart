@@ -33,7 +33,7 @@ class OnboardScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("나만을 위한 AI 친구", style: AppTextStyle.instance.titleBold_25),
+                    Text("나만을 위한 AI 친구", style: AppTextStyle.instance.notoSansBold25),
                     Row(
                       children: [
                         Padding(
@@ -44,7 +44,7 @@ class OnboardScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 5,),
-                        Text("미니톡", style: AppTextStyle.instance.titleBold_30),
+                        Text("미니톡", style: AppTextStyle.instance.notoSansBold30),
                       ],
                     ),
                   ],
@@ -99,7 +99,7 @@ class OnboardScreen extends StatelessWidget {
                       children: [
                         Image.asset(Assets.googleLogo, width: 18,),
                         const SizedBox(width: 12,),
-                        Text("Google 계정으로 로그인", style: AppTextStyle.instance.content_16),
+                        Text("Google 계정으로 로그인", style: AppTextStyle.instance.notoSans15),
                       ],
                     ),
                   ),
@@ -113,11 +113,11 @@ class OnboardScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       text: TextSpan(
                         children: [
-                          TextSpan(text: "서비스 이용 시작 시 미니톡의 ", style: AppTextStyle.instance.content_12),
-                          TextSpan(text: "서비스 이용약관", style: AppTextStyle.instance.contentBold_12),
-                          TextSpan(text: "과\n", style: AppTextStyle.instance.content_12),
-                          TextSpan(text: "개인정보 처리방침", style: AppTextStyle.instance.contentBold_12),
-                          TextSpan(text: "에 동의하시는 것으로 간주합니다.", style: AppTextStyle.instance.content_12),
+                          TextSpan(text: "서비스 이용 시작 시 미니톡의 ", style: AppTextStyle.instance.notoSans12),
+                          TextSpan(text: "서비스 이용약관", style: AppTextStyle.instance.notoSansBold12),
+                          TextSpan(text: "과\n", style: AppTextStyle.instance.notoSans12),
+                          TextSpan(text: "개인정보 처리방침", style: AppTextStyle.instance.notoSansBold12),
+                          TextSpan(text: "에 동의하시는 것으로 간주합니다.", style: AppTextStyle.instance.notoSans12),
                         ],
                       ),
                     ),
