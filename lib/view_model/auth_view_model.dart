@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:minitalk/models/user.dart';
 import 'package:minitalk/repository/auth_repository.dart';
 
 class AuthViewModel with ChangeNotifier {
@@ -21,5 +22,9 @@ class AuthViewModel with ChangeNotifier {
       setLoading(false);
       return false;
     });
+  }
+
+  User getUser() {
+    return _auth.getUser();
   }
 }
