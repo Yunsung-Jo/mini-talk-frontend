@@ -43,6 +43,8 @@ dependencies:
   google_sign_in: ^6.2.1
   envied: ^0.5.4+1
   url_launcher: ^6.2.6
+  speech_to_text: ^6.6.1
+  flutter_tts: ^4.0.2
 
 dev_dependencies:
   flutter_test:
