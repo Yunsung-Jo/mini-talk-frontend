@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:minitalk/utils/routes/routes.dart';
 import 'package:minitalk/utils/routes/routes_name.dart';
+import 'package:minitalk/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,10 +14,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: RoutesName.onboard,
-      onGenerateRoute: Routes.generateRoutes,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: RoutesName.onboard,
+        onGenerateRoute: Routes.generateRoutes,
+      ),
     );
   }
 }

@@ -1,10 +1,15 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minitalk/res/assets.dart';
 import 'package:minitalk/res/colors.dart';
 import 'package:minitalk/res/components/illustration_widget.dart';
 import 'package:minitalk/res/style/text_style.dart';
+import 'package:minitalk/res/urls.dart';
+import 'package:minitalk/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OnboardScreen extends StatelessWidget {
   const OnboardScreen({super.key});
@@ -19,6 +24,7 @@ class OnboardScreen extends StatelessWidget {
   }
 
   Widget _body(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     PageController pageController = PageController();
     return Column(
       children: [
@@ -89,7 +95,13 @@ class OnboardScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
+                      if (!authViewModel.loading) {
+                        authViewModel.signIn().then((value) {
+                          if (value) {
 
+                          }
+                        });
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32)
@@ -114,9 +126,21 @@ class OnboardScreen extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(text: "서비스 이용 시작 시 미니톡의 ", style: AppTextStyle.instance.notoSans12),
-                          TextSpan(text: "서비스 이용약관", style: AppTextStyle.instance.notoSansBold12),
+                          TextSpan(
+                            text: "서비스 이용약관",
+                            style: AppTextStyle.instance.notoSansBold12,
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              launchUrl(Uri.tryParse(Urls.termsOfUse)!);
+                            },
+                          ),
                           TextSpan(text: "과\n", style: AppTextStyle.instance.notoSans12),
-                          TextSpan(text: "개인정보 처리방침", style: AppTextStyle.instance.notoSansBold12),
+                          TextSpan(
+                            text: "개인정보 처리방침",
+                            style: AppTextStyle.instance.notoSansBold12,
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              launchUrl(Uri.tryParse(Urls.privacyPolicy)!);
+                            },
+                          ),
                           TextSpan(text: "에 동의하시는 것으로 간주합니다.", style: AppTextStyle.instance.notoSans12),
                         ],
                       ),
