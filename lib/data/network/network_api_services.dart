@@ -61,7 +61,7 @@ class NetworkApiServices extends BaseApiServices {
       switch (response.statusCode) {
         case 200:
           final json = jsonDecode(body);
-          debugPrint(json);
+          debugPrint(json.toString());
           return json;
         case 400:
         case 404:
