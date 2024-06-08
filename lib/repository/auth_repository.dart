@@ -27,9 +27,11 @@ class AuthRepository {
   }
 
   Future<String> _googleSignIn() async {
-    GoogleSignInAccount? account = await GoogleSignIn(
-      serverClientId: Env.serverClientId,
-    ).signIn();
+    final google = GoogleSignIn(serverClientId: Env.serverClientId);
+    bool isSignedIn = await google.isSignedIn();
+    GoogleSignInAccount? account = isSignedIn
+        ? await google.signInSilently()
+        : await google.signIn();
     try {
       _user = User(name: account!.displayName!, photoUrl: account.photoUrl);
       GoogleSignInAuthentication authentication = await account.authentication;

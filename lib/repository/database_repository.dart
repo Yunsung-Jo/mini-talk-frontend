@@ -17,6 +17,12 @@ abstract class DatabaseRepository {
     return await _databaseHelper.insert(table, model.toMap());
   }
 
+  Future<void> insertAll(List<BaseModel> models) async {
+    for (var model in models) {
+      await _databaseHelper.insert(table, model.toMap());
+    }
+  }
+
   Future<int> update(BaseModel model) async {
     return await _databaseHelper.update(table, model.toMap());
   }
