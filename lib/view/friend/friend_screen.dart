@@ -4,6 +4,7 @@ import 'package:minitalk/models/personality.dart';
 import 'package:minitalk/res/components/custom_app_bar.dart';
 import 'package:minitalk/res/components/dropdown_widget.dart';
 import 'package:minitalk/res/components/title_text_widget.dart';
+import 'package:minitalk/res/padding.dart';
 import 'package:minitalk/res/style/decoration_style.dart';
 import 'package:minitalk/res/style/text_style.dart';
 import 'package:minitalk/utils/routes/routes_name.dart';
@@ -19,7 +20,7 @@ class FriendScreen extends StatelessWidget {
       appBar: CustomAppBar(context: context, label: "친구 추가",),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: AppPadding.main),
           child: _body(context),
         ),
       ),
@@ -37,7 +38,7 @@ class FriendScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TitleTextWidget(title: "이름", style: AppTextStyle.instance.notoSans12),
+                const TitleTextWidget(title: "이름",),
                 Form(
                   key: formKey,
                   child: TextFormField(
@@ -54,13 +55,13 @@ class FriendScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                TitleTextWidget(title: "직업", style: AppTextStyle.instance.notoSans12),
+                const TitleTextWidget(title: "직업",),
                 DropdownWidget(
                   value: friendViewModel.job,
                   items: Job.values,
                   onChanged: friendViewModel.setJob,
                 ),
-                TitleTextWidget(title: "성격", style: AppTextStyle.instance.notoSans12),
+                const TitleTextWidget(title: "성격",),
                 DropdownWidget(
                   value: friendViewModel.personality,
                   items: Personality.values,
