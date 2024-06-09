@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minitalk/models/job.dart';
 import 'package:minitalk/models/personality.dart';
+import 'package:minitalk/res/components/custom_app_bar.dart';
 import 'package:minitalk/res/components/dropdown_widget.dart';
 import 'package:minitalk/res/style/decoration_style.dart';
 import 'package:minitalk/res/style/text_style.dart';
@@ -14,9 +15,7 @@ class FriendScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("친구 추가", style: AppTextStyle.instance.notoSansBold20,),
-      ),
+      appBar: CustomAppBar(context: context, label: "친구 추가",),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
