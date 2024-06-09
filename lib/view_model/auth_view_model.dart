@@ -30,7 +30,7 @@ class AuthViewModel with ChangeNotifier {
   Future<bool> signIn() async {
     setLoading(true);
     return _auth.signIn().then((value) async {
-      if ((await _friend.getFriends()).isEmpty) {
+      if ((await _friend.getFriendsAsync()).isEmpty) {
         _setRegister(true);
       }
       setLoading(false);

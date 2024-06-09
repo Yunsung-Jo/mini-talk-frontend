@@ -7,7 +7,7 @@ import 'package:minitalk/res/urls.dart';
 
 class FriendRepository extends DatabaseRepository {
   final BaseApiServices _apiServices = NetworkApiServices();
-  List<Friend> _friends = [];
+  static List<Friend> _friends = [];
 
   FriendRepository({
     super.table = Tables.friend,
@@ -28,7 +28,7 @@ class FriendRepository extends DatabaseRepository {
     }
   }
 
-  Future<List<Friend>> getFriends() async {
+  Future<List<Friend>> getFriendsAsync() async {
     if (_friends.isNotEmpty) {
       return _friends;
     }
@@ -43,6 +43,10 @@ class FriendRepository extends DatabaseRepository {
       }
     }
     _friends = friends;
+    return _friends;
+  }
+
+  List<Friend> getFriends() {
     return _friends;
   }
 }

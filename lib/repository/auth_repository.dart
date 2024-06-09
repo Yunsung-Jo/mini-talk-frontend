@@ -6,7 +6,7 @@ import 'package:minitalk/res/env/env.dart';
 import 'package:minitalk/res/urls.dart';
 
 class AuthRepository {
-  late User _user;
+  static late User _user;
   final BaseApiServices _apiServices = NetworkApiServices();
   final _google = GoogleSignIn(serverClientId: Env.serverClientId);
 
