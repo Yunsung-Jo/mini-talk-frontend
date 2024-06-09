@@ -28,12 +28,12 @@ class Friend extends BaseModel {
       BaseModel.fromJsonList(fromJson, json);
 
   @override
-  Map<String, Object?> toMap() {
+  Map<String, Object?> toMap({bool http = false}) {
     return {
-      "id": id,
+      if (!http) "id": id,
       "name": name,
-      "job": job.name,
-      "personality": personality.name,
+      "job": job.name.toUpperCase(),
+      "personality": personality.name.toUpperCase(),
     };
   }
 }

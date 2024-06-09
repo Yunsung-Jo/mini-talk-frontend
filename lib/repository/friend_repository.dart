@@ -17,7 +17,7 @@ class FriendRepository extends DatabaseRepository {
     try {
       final response = await _apiServices.getPostApiResponse(
         Urls.friendEndPoint,
-        friend.toMap(),
+        friend.toMap(http: true),
       );
       Friend f = Friend.fromJson(response);
       await insert(f);

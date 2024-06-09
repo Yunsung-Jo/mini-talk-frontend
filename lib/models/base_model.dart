@@ -1,5 +1,5 @@
 abstract class BaseModel {
-  Map<String, Object?> toMap();
+  Map<String, Object?> toMap({bool http});
 
   static List<T> fromJsonList<T>(Function(dynamic) fromJson, dynamic json) {
     if (json.length == 0) {
