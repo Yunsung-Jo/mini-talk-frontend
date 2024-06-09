@@ -21,4 +21,7 @@ class CustomAppBar extends AppBar {
 
   @override
   List<Widget>? get actions => actionList;
+
+  @override
+  Color? get surfaceTintColor => Colors.transparent;
 }

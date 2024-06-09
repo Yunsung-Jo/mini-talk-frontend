@@ -1,0 +1,1 @@
+enum Talker { user, model }

@@ -12,7 +12,7 @@ class Routes {
       case RoutesName.friend:
         return MaterialPageRoute(builder: (context) => const FriendScreen());
       case RoutesName.home:
-        return MaterialPageRoute(builder: (context) => const HomeScreen());
+        return MaterialPageRoute(builder: (context) => HomeScreen());
 
       default:
         return MaterialPageRoute(builder: (_) {

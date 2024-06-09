@@ -16,4 +16,13 @@ class AppDecorationStyle {
     ),
     counter: const SizedBox.shrink(),
   );
+
+  final BoxDecoration bottomBorder = const BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: AppColors.serve,
+        width: 0.5,
+      ),
+    ),
+  );
 }
