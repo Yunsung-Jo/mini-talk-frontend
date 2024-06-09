@@ -3,6 +3,7 @@ import 'package:minitalk/models/job.dart';
 import 'package:minitalk/models/personality.dart';
 import 'package:minitalk/res/components/custom_app_bar.dart';
 import 'package:minitalk/res/components/dropdown_widget.dart';
+import 'package:minitalk/res/components/title_text_widget.dart';
 import 'package:minitalk/res/style/decoration_style.dart';
 import 'package:minitalk/res/style/text_style.dart';
 import 'package:minitalk/utils/routes/routes_name.dart';
@@ -36,7 +37,7 @@ class FriendScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _getHint("이름"),
+                TitleTextWidget(title: "이름", style: AppTextStyle.instance.notoSans12),
                 Form(
                   key: formKey,
                   child: TextFormField(
@@ -53,13 +54,13 @@ class FriendScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                _getHint("직업"),
+                TitleTextWidget(title: "직업", style: AppTextStyle.instance.notoSans12),
                 DropdownWidget(
                   value: friendViewModel.job,
                   items: Job.values,
                   onChanged: friendViewModel.setJob,
                 ),
-                _getHint("성격"),
+                TitleTextWidget(title: "성격", style: AppTextStyle.instance.notoSans12),
                 DropdownWidget(
                   value: friendViewModel.personality,
                   items: Personality.values,
@@ -94,16 +95,6 @@ class FriendScreen extends StatelessWidget {
             child: Text("완료", style: AppTextStyle.instance.notoSans15,),
           ),
         ),
-      ],
-    );
-  }
-
-  Widget _getHint(String hint) {
-    return Column(
-      children: [
-        const SizedBox(height: 30,),
-        Text(hint, style: AppTextStyle.instance.notoSans12,),
-        const SizedBox(height: 5,),
       ],
     );
   }
