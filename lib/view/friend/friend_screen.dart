@@ -45,7 +45,7 @@ class FriendScreen extends StatelessWidget {
                     controller: friendViewModel.name,
                     maxLength: 20,
                     decoration: AppDecorationStyle.instance.lightGray.applyDefaults(const InputDecorationTheme(
-                      contentPadding: EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+                      contentPadding: EdgeInsets.symmetric(vertical: 17, horizontal: 16),
                     )),
                     validator: (value) {
                       if (value == null || value.isEmpty) {

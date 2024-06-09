@@ -19,7 +19,7 @@ class DropdownWidget<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return InputDecorator(
       decoration: AppDecorationStyle.instance.lightGray.applyDefaults(const InputDecorationTheme(
-        contentPadding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+        contentPadding: EdgeInsets.fromLTRB(16, 6, 8, 6),
       )),
       child: DropdownButtonHideUnderline(
         child: DropdownButton(

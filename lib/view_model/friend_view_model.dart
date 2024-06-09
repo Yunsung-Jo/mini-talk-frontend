@@ -43,10 +43,18 @@ class FriendViewModel with ChangeNotifier {
       job: job,
       personality: personality,
     )).then((value) {
+      setLoading(false);
+      _init();
       return true;
     }).onError((error, stackTrace) {
       setLoading(false);
       return false;
     });
+  }
+
+  void _init() {
+    _name.text = "";
+    _job = Job.student;
+    _personality = Personality.extroversion;
   }
 }
