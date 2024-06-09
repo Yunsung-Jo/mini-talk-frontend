@@ -6,6 +6,7 @@ import 'package:minitalk/res/colors.dart';
 import 'package:minitalk/res/components/illustration_widget.dart';
 import 'package:minitalk/res/style/text_style.dart';
 import 'package:minitalk/res/urls.dart';
+import 'package:minitalk/utils/routes/routes_name.dart';
 import 'package:minitalk/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -98,7 +99,10 @@ class OnboardScreen extends StatelessWidget {
                       if (!authViewModel.loading) {
                         authViewModel.signIn().then((value) {
                           if (value) {
-
+                            Navigator.pushReplacementNamed(
+                              context,
+                              RoutesName.friend,
+                            );
                           }
                         });
                       }
