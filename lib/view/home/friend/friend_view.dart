@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minitalk/res/assets.dart';
-import 'package:minitalk/res/colors.dart';
+import 'package:minitalk/res/components/action_button.dart';
 import 'package:minitalk/res/components/custom_app_bar.dart';
 import 'package:minitalk/view/home/friend/friend_list_item.dart';
 import 'package:minitalk/res/components/title_text_widget.dart';
@@ -27,19 +26,12 @@ class FriendView extends BaseView {
         context: context,
         label: label,
         actionList: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, RoutesName.friend)
-                  .then(homeViewModel.refresh);
-            },
-            icon: SvgPicture.asset(
-              Assets.userAdd,
-              width: 20,
-              colorFilter: const ColorFilter.mode(
-                AppColors.text,
-                BlendMode.srcIn,
-              ),
-            ),
+          ActionButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoutesName.friend)
+                    .then(homeViewModel.refresh);
+              },
+              icon: Assets.userAdd,
           ),
         ],
       ),
