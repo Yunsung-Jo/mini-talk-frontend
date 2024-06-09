@@ -9,6 +9,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AuthViewModel authViewModel = AuthViewModel();
   bool isSignedIn = await authViewModel.isSignedIn();
+  if (isSignedIn) {
+    await authViewModel.signIn();
+  }
   runApp(
     MultiProvider(
       providers: [
