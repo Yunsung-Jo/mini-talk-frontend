@@ -23,6 +23,10 @@ class AuthViewModel with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<bool> isSignedIn() async {
+    return await _auth.isSignedIn();
+  }
+
   Future<bool> signIn() async {
     setLoading(true);
     return _auth.signIn().then((value) async {

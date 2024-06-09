@@ -38,11 +38,11 @@ class FriendRepository extends DatabaseRepository {
         final response = await _apiServices.getGetApiResponse(Urls.friendsEndPoint);
         friends = Friend.fromJsonList(response);
         await insertAll(friends);
-        _friends = friends;
       } catch (e) {
         rethrow;
       }
     }
+    _friends = friends;
     return _friends;
   }
 }

@@ -8,6 +8,7 @@ import 'package:minitalk/res/urls.dart';
 class AuthRepository {
   late User _user;
   final BaseApiServices _apiServices = NetworkApiServices();
+  final _google = GoogleSignIn(serverClientId: Env.serverClientId);
 
   Future<bool> signIn() async {
     try {
@@ -26,12 +27,15 @@ class AuthRepository {
     }
   }
 
+  Future<bool> isSignedIn() async {
+    return await _google.isSignedIn();
+  }
+
   Future<String> _googleSignIn() async {
-    final google = GoogleSignIn(serverClientId: Env.serverClientId);
-    bool isSignedIn = await google.isSignedIn();
+    bool isSignedIn = await this.isSignedIn();
     GoogleSignInAccount? account = isSignedIn
-        ? await google.signInSilently()
-        : await google.signIn();
+        ? await _google.signInSilently()
+        : await _google.signIn();
     try {
       _user = User(name: account!.displayName!, photoUrl: account.photoUrl);
       GoogleSignInAuthentication authentication = await account.authentication;

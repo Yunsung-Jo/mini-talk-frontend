@@ -4,6 +4,7 @@ import 'package:minitalk/models/personality.dart';
 import 'package:minitalk/res/components/dropdown_widget.dart';
 import 'package:minitalk/res/style/decoration_style.dart';
 import 'package:minitalk/res/style/text_style.dart';
+import 'package:minitalk/utils/routes/routes_name.dart';
 import 'package:minitalk/view_model/friend_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -78,7 +79,11 @@ class FriendScreen extends StatelessWidget {
                 if (formKey.currentState!.validate()) {
                   friendViewModel.createFriend().then((value) {
                     if (value) {
-
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      } else {
+                        Navigator.pushReplacementNamed(context, RoutesName.home);
+                      }
                     }
                   });
                 }

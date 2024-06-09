@@ -101,7 +101,7 @@ class OnboardScreen extends StatelessWidget {
                           if (value) {
                             Navigator.pushReplacementNamed(
                               context,
-                              RoutesName.friend,
+                              authViewModel.register ? RoutesName.friend : RoutesName.home,
                             );
                           }
                         });

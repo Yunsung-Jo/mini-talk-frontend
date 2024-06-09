@@ -5,26 +5,35 @@ import 'package:minitalk/view_model/auth_view_model.dart';
 import 'package:minitalk/view_model/friend_view_model.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const App());
+  AuthViewModel authViewModel = AuthViewModel();
+  bool isSignedIn = await authViewModel.isSignedIn();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => authViewModel),
+        ChangeNotifierProvider(create: (_) => FriendViewModel()),
+      ],
+      child: App(isSignedIn: isSignedIn,),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
-  const App({super.key});
+  final bool isSignedIn;
+
+  const App({
+    super.key,
+    this.isSignedIn = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AuthViewModel()),
-        ChangeNotifierProvider(create: (_) => FriendViewModel()),
-      ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.onboard,
-        onGenerateRoute: Routes.generateRoutes,
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: isSignedIn ? RoutesName.home : RoutesName.onboard,
+      onGenerateRoute: Routes.generateRoutes,
     );
   }
 }
