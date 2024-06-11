@@ -6,4 +6,6 @@ class Assets {
   static const String user = "assets/user.svg";
   static const String userAdd = "assets/user-add.svg";
   static const String userRobot = "assets/user-robot.svg";
+  static const String phoneFlip = "assets/phone-flip.svg";
+  static const String paperPlane = "assets/paper-plane.svg";
 }

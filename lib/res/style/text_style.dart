@@ -40,4 +40,9 @@ class AppTextStyle {
     fontWeight: FontWeight.bold,
     decoration: TextDecoration.underline,
   );
+
+  final TextStyle notoSans10 = GoogleFonts.notoSansKr(
+    color: AppColors.hint,
+    fontSize: 10,
+  );
 }

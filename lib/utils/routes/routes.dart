@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minitalk/utils/routes/routes_name.dart';
+import 'package:minitalk/view/chat/chat_screen.dart';
 import 'package:minitalk/view/friend/friend_screen.dart';
 import 'package:minitalk/view/home/home_screen.dart';
 import 'package:minitalk/view/onboard/onboard_screen.dart';
@@ -13,6 +14,8 @@ class Routes {
         return MaterialPageRoute(builder: (context) => const FriendScreen());
       case RoutesName.home:
         return MaterialPageRoute(builder: (context) => HomeScreen());
+      case RoutesName.chat:
+        return MaterialPageRoute(builder: (context) => const ChatScreen(), settings: settings);
 
       default:
         return MaterialPageRoute(builder: (_) {
