@@ -24,6 +24,10 @@ class HomeViewModel with ChangeNotifier {
     return _auth.getUser();
   }
 
+  Future<List<Friend>> getFriendsAsync() async {
+    return await _friend.getFriendsAsync();
+  }
+
   List<Friend> getFriends() {
     return _friend.getFriends();
   }

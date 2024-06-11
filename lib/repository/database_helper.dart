@@ -51,6 +51,10 @@ class DatabaseHelper {
     );
   }
 
+  Future<List<Map<String, Object?>>> rawQuery(String sql) async {
+    return (await database).database.rawQuery(sql);
+  }
+
   Future<int> insert(String table, Map<String, Object?> values) async {
     return (await database).database.insert(table, values);
   }

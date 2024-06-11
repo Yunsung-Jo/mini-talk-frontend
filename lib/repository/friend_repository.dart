@@ -29,10 +29,31 @@ class FriendRepository extends DatabaseRepository {
   }
 
   Future<List<Friend>> getFriendsAsync() async {
-    if (_friends.isNotEmpty) {
-      return _friends;
-    }
-    List<Friend> friends = await find(Friend.fromJsonList) as List<Friend>;
+    List<Friend> friends = await rawQuery(
+        Friend.fromJsonList,
+        """
+        SELECT
+          f.id,
+          f.name,
+          f.job,
+          f.personality,
+          t.text,
+          t.createdDate
+        FROM ${Tables.friend} AS f
+        LEFT JOIN (
+          SELECT friendId, MAX(id) AS id
+          FROM ${Tables.talk}
+          GROUP BY friendId
+        ) AS sub ON f.id = sub.friendId
+        LEFT JOIN ${Tables.talk} AS t ON f.id = t.friendId AND t.id = sub.id
+        ORDER BY
+          CASE
+            WHEN t.text IS NULL THEN 1 ELSE 0
+          END,
+          t.id DESC,
+          f.id ASC
+        """,
+    ) as List<Friend>;
     if (friends.isEmpty) {
       try {
         final response = await _apiServices.getGetApiResponse(Urls.friendsEndPoint);

@@ -20,7 +20,7 @@ class Talk extends BaseModel {
     return Talk(
         id: json["id"],
         friendId: json["friendId"] ?? friendId,
-        text: json["text"],
+        text: json["text"].replaceAll("\n", ""),
         talker: Talker.values.byName(json["talker"].toLowerCase()),
         createdDate: DateTime.parse(json["createdDate"]),
     );

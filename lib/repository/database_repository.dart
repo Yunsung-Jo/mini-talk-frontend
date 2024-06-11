@@ -13,6 +13,10 @@ abstract class DatabaseRepository {
     return function.call(await _databaseHelper.find(table, where: where, whereArgs: whereArgs, orderBy: orderBy));
   }
 
+  Future<List<BaseModel>> rawQuery(Function(dynamic) function, String sql) async {
+    return function.call(await _databaseHelper.rawQuery(sql));
+  }
+
   Future<int> insert(BaseModel model) async {
     return await _databaseHelper.insert(table, model.toMap());
   }

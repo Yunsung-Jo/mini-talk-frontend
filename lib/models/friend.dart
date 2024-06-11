@@ -7,20 +7,26 @@ class Friend extends BaseModel {
   String name;
   Job job;
   Personality personality;
+  String? text;
+  DateTime? createdDate;
 
   Friend({
     this.id = 0,
     required this.name,
     required this.job,
     required this.personality,
+    this.text,
+    this.createdDate,
   });
 
   static Friend fromJson(dynamic json) {
     return Friend(
-        id: json["id"],
-        name: json["name"],
-        job: Job.values.byName(json["job"].toLowerCase()),
-        personality: Personality.values.byName(json["personality"].toLowerCase()),
+      id: json["id"],
+      name: json["name"],
+      job: Job.values.byName(json["job"].toLowerCase()),
+      personality: Personality.values.byName(json["personality"].toLowerCase()),
+      text: json["text"],
+      createdDate: json["createdDate"] == null ? null : DateTime.parse(json["createdDate"]),
     );
   }
 

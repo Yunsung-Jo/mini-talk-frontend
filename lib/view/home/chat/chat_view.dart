@@ -42,7 +42,10 @@ class ChatView extends BaseView {
                   arguments: {
                     "friend": value,
                   },
-                );
+                ).then((value) async {
+                  await homeViewModel.getFriendsAsync();
+                  homeViewModel.refresh(value);
+                });
               },
             ),
         ],

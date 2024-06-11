@@ -54,7 +54,7 @@ class TalkListWidget extends StatelessWidget {
                           color: isUser ? AppColors.serve : AppColors.primary,
                         ),
                         child: Text(
-                          talk.text.replaceAll("\n", ""),
+                          talk.text,
                           style: AppTextStyle.instance.notoSans15.apply(
                             color: isUser ? AppColors.text : Colors.white,
                           ),
