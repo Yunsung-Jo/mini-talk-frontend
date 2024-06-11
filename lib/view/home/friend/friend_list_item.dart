@@ -27,7 +27,13 @@ class FriendListItem extends StatelessWidget {
           children: [
             ProfilePictureWidget(photoUrl: photoUrl,),
             const SizedBox(width: 10,),
-            Text(name ?? friend!.name, style: AppTextStyle.instance.notoSans15,),
+            Expanded(
+              child: Text(
+                name ?? friend!.name,
+                style: AppTextStyle.instance.notoSans15,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),
