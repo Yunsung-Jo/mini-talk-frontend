@@ -31,13 +31,23 @@ class DatabaseHelper {
       personality TEXT NOT NULL
     );
     ''');
+    await db.execute('''
+    CREATE TABLE ${Tables.talk} (
+      id INTEGER PRIMARY KEY,
+      friendId INTEGER,
+      text TEXT NOT NULL,
+      talker TEXT NOT NULL,
+      createdDate TEXT NOT NULL
+    );
+    ''');
   }
 
-  Future<List<Map<String, Object?>>> find(String table, {String? where, List<Object?>? whereArgs}) async {
+  Future<List<Map<String, Object?>>> find(String table, {String? where, List<Object?>? whereArgs, String? orderBy}) async {
     return (await database).database.query(
       table,
       where: where,
       whereArgs: whereArgs,
+      orderBy: orderBy,
     );
   }
 

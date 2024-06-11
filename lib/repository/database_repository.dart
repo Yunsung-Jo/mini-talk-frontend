@@ -9,8 +9,8 @@ abstract class DatabaseRepository {
     required this.table,
   });
 
-  Future<List<BaseModel>> find(Function(dynamic) function, {String? where, List<Object?>? whereArgs}) async {
-    return function.call(await _databaseHelper.find(table, where: where, whereArgs: whereArgs));
+  Future<List<BaseModel>> find(Function(dynamic) function, {String? where, List<Object?>? whereArgs, String? orderBy}) async {
+    return function.call(await _databaseHelper.find(table, where: where, whereArgs: whereArgs, orderBy: orderBy));
   }
 
   Future<int> insert(BaseModel model) async {

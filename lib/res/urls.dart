@@ -5,4 +5,5 @@ class Urls {
   static const String loginEndPoint = "login";
   static const String friendEndPoint = "friend";
   static const String friendsEndPoint = "friends";
+  static const String talkEndPoint = "talk";
 }
